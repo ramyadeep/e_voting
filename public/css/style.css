@@ -1,0 +1,17 @@
+.main-container{
+    padding-left: 50px;
+    padding-right: 50px;
+}
+.left{
+    padding-top: 60px;
+}
+.right{
+    padding-top: 60px;
+}
+
+img{
+    padding-bottom: 40px;
+}
+.jumbotron{
+    text-align: center;
+}
