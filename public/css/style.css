@@ -15,3 +15,25 @@ img{
 .jumbotron{
     text-align: center;
 }
+.cndt-txt-size{
+    font-size: 1.5rem;
+}
+footer{
+    margin-top: 50px;
+    padding: 10px;
+    background-color: aquamarine;
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+}
+@media screen and (max-width: 992px) {
+    footer{
+        position:relative;
+        bottom: 0px;
+    }
+}
+
+i{
+ font-size: 2rem;   
+}
+

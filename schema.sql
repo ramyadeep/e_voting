@@ -3,7 +3,8 @@ CREATE TABLE voters(
     voterId INT PRIMARY KEY AUTO_INCREMENT,
     voterName VARCHAR(50) NOT NULL,
     email VARCHAR(50) UNIQUE NOT NULL,
-    password VARCHAR(16)
+    password VARCHAR(16),
+    isVoted BOOLEAN DEFAULT FALSE
 );
 
 
@@ -13,7 +14,9 @@ DROP TABLE candidates;
 CREATE TABLE candidates(
     candidateId INT PRIMARY KEY AUTO_INCREMENT,
     candidateName VARCHAR(50) NOT NULL,
-    candidateParty VARCHAR(50) NOT NULL
+    candidateParty VARCHAR(50) NOT NULL,
+    description VARCHAR(100),
+    gender ENUM('M','F') DEFAULT 'M'
 );
 
 

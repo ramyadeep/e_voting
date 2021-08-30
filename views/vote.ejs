@@ -1,0 +1,82 @@
+<%- include('header'); -%>
+<style>
+  .custom-padding {
+    padding: 20px 100px;
+  }
+
+  .candidate-template {
+    vertical-align: middle;
+    border: 2px solid#007bff;
+    margin: 10px 0px;
+    padding: 20px;
+  }
+
+  @media screen and (max-width: 992px) {
+    .custom-padding {
+      padding: 20px 10px;
+    }
+  }
+
+  .candidate-template:hover {
+    background-color: aquamarine;
+    border: 2px solid green;
+  }
+
+  footer{
+  margin-top: 50px;
+  padding: 10px;
+  background-color: aquamarine;
+  width: 100%;
+  }
+  i{
+  font-size: 2rem;
+  }
+</style>
+<%- include('navbar'); -%>
+<div class="custom-padding">
+  <div class="my-3  bg-white rounded box-shadow">
+    <h2 class="border-bottom border-gray pb-2 mb-0">Your candidates</h2>
+
+    <%  data.forEach((d)=>{ %>
+    <div class="media pt-3 rounded candidate-template">
+      <img src="/images/\<%=d.gender%>.png" alt="" width="50px" class="mr-2 rounded">
+      <p class="media-body pb-3 mb-0 small lh-125">
+        <strong class="d-block text-gray-dark cndt-txt-size"><span style="color:red;"><%=d.candidateName%></span>, <%=d.candidateParty%></strong>
+        <%=d.description%>
+      </p>
+      <button type="button" class="btn btn-primary" onclick="select('<%=d.candidateName%>',<%=d.candidateId%>)">Vote</button>
+    </div>
+    <%  }); %>
+
+    </div>
+  </div>
+  <div class=" custom-padding p-3 mb-4" style="text-align: center;">
+    <div class="alert alert-success">
+      <h5>Selected candidate: <span id="selected-item" style="color: red; display:block">Please select your
+          candidate.</span></h5>
+    </div>
+    <button type="button" class="btn btn-warning btn-lg custom-btn" onclick="submit()">Confirm Vote</button>
+  </div>
+
+
+  <script>
+    var selectedCandidate;
+    if (window.innerWidth < 800) {
+      document.getElementsByClassName("custom-btn")[0].classList.add('btn-block');
+    }
+
+    function select(name, id) {
+      console.log(name,id);
+      selectedCandidate = id;
+      document.getElementById('selected-item').innerText = name;
+    }
+
+    function submit() {
+      if (selectedCandidate) {
+        confirm("Are you sure to proceed?");
+      } else {
+        alert('Please select a candidate first');
+      }
+    }
+  </script>
+  <%- include('footer'); -%>

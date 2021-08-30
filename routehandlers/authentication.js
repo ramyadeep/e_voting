@@ -8,13 +8,13 @@ module.exports.login = async (req, res) => {
         else {
             if (result.length == 0) {
                 res.statusCode = 401;
-                res.sendFile(reqPath + '/pages/error.html');
+                res.render('error');
             }
             else {
-                res.sendFile(reqPath + '/pages/home.html');
+                res.render('home',{user:result[0]});
             }
         }
-    })
+    });
 
 }
 
