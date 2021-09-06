@@ -17,5 +17,8 @@ app.get('/', (req, res) => {
 app.post('/',login);
 
 
-app.get('/vote/:voterID',voteWindow);
+app.get('/candidates',voteWindow);
+app.get('/confirm',(req,res){
+})
+// app.get('/vote/:cadidateId/')
 app.listen(3000,'192.168.42.4', () => console.log("Server Started"));

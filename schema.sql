@@ -25,7 +25,6 @@ CREATE TABLE casting_chain(
     id INT PRIMARY KEY AUTO_INCREMENT,
     record TEXT,
     castingTime TIMESTAMP DEFAULT NOW(),
-    -- FOREIGN KEY(casting_to) REFERENCES candidates(candidate_id),
     hash VARCHAR(100),
     previousHash VARCHAR(100),
     nonce BIGINT

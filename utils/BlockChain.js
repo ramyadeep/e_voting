@@ -52,6 +52,7 @@ class BlockChain {
     async addBlock(newBlock) {
         newBlock.index = this.chain.length;
         let latestBlock = await this.db.getLatestBlock();
+        newBlock.record = JSON.stringify(newBlock.record);
         newBlock.previousHash = latestBlock.hash;
         newBlock.mineBlock(this.difficulty);
         this.chain.push(newBlock);
@@ -154,18 +155,7 @@ class dbInterface {
     }
 }
 
-async function test() {
-    const d = new BlockChain();
-    // d.addBlock(new Block(Date(),'testing 3'));
-    setTimeout(() => {
-        // console.log(d.chain);
-        console.log(d.isBlockChainValid());
-    }, 1000);
-    // const i = new dbInterface();
-    // let latestBlock = await i.getLatestBlock();
-    // console.log(latestBlock.hash);
-}
 
-test();
+
 module.exports = { Block, BlockChain, dbInterface };
 
